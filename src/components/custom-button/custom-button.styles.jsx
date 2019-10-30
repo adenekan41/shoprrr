@@ -36,7 +36,9 @@ const getButtonStyles = props => {
         return primaryButton;
     }
 
-    return props.theme === 'inverted' ? invertedButton : defaultStyle
+    else {
+        return props.theme === "inverted" ? invertedButton : defaultStyle
+    } 
 }
 export const CustomButtonContainer = styled.button`
     min-width: 165px;

@@ -56,7 +56,26 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     return await batch.commit()
     // collectionRef.set(objectsToAdd)
 }
+export const convertCollectionsSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map(doc => {
+        const {title, items} = doc.data();
 
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items
+        }
+       
+    })
+
+    return transformedCollection.reduce((accumulator, collection) => 
+    {
+        accumulator[collection.title.toLowerCase()] = collection; 
+        return accumulator; 
+    }, 
+    {})
+}
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 

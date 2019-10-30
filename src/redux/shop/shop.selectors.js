@@ -28,7 +28,7 @@ export const selectCollection = collectionUrlParam => {
     return (
         createSelector(
         [selectCollections],
-        collections => collections[collectionUrlParam]
+        collections => collections ? collections[collectionUrlParam] : null
         // collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam])
     ))
     }
