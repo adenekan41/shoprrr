@@ -16,9 +16,12 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)
-
     const snapShot = await userRef.get() 
 
+    // const collectionRef = firestore.collection('users')
+    // const collectionSnapShot = await collectionRef.get()
+
+    // console.log(collectionSnapShot)
     if(!snapShot.exists){
         const {displayName , email} = userAuth    
         const createdAt = new Date()
@@ -42,6 +45,17 @@ firebase.initializeApp(firebaseConfig)
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey)
+    const batch = firestore.batch();
+
+    objectsToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc()
+        batch.set(newDocRef, obj);
+    })
+    return await batch.commit()
+    // collectionRef.set(objectsToAdd)
+}
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
