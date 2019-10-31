@@ -2,8 +2,9 @@ import logger from 'redux-logger'
 import {createStore, applyMiddleware} from 'redux'
 import rootReducer from './root-reducer'
 import { persistStore } from 'redux-persist'
+import thunk from 'redux-thunk'
 
-const middlewears = []
+const middlewears = [thunk]
 
 if(process.env.NODE_ENV === "development"){
     middlewears.push(logger)
