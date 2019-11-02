@@ -1,5 +1,5 @@
 // import SHOP_DATA from "../../pages/shop/shopData"
-import { shopTypes } from "./shop.types"
+import shopTypes from "./shop.types"
 
 const initialState = {
     collections: {},

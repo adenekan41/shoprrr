@@ -5,7 +5,7 @@ import {selectCollection } from '../../redux/shop/shop.selectors'
 import PreviewItem from '../../components/preview-item/preview-item.component'
 
 import './category.styles.scss'
-const CategoryPage = ({ match,category }) => {
+const CategoryPage = ({ match, category }) => {
     const {title, items} = category
     console.log(match)
     return(
