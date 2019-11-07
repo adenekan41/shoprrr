@@ -1,21 +1,36 @@
 .cart-dropdown {
-    position: absolute;
-    width: 240px;
-    height: 340px;
+    // position: absolute;
+    // width: 240px;
+    // height: 340px;
+    // display: flex;
+    // flex-direction: column;
+    // padding: 20px;
+    // border: 1px solid black;
+    // background-color: white;
+    // top: 90px;
+    // right: 40px;
+    // z-index: 5;
+    animation-iteration-count: 1;
+    animation-duration: .5s;
+    animation-name: slide;
+    position: fixed;
+    width: 320px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid black;
+    box-shadow: 0 6px 11px #0000001c;
+    border: 1px solid white;
     background-color: white;
-    top: 90px;
-    right: 40px;
+    bottom: 0;
+    right: 0px;
     z-index: 5;
     .empty-message {
         font-size: 18px;
         margin: 50px auto;
     }
     .cart-items {
-      height: 240px;
+      height: 95vh;
       display: flex;
       flex-direction: column;
       overflow: scroll;
@@ -24,5 +39,25 @@
     button {
       margin-top: auto;
     }
+    h4{
+      font-size: 17px;
+      font-family: blorado;
+      font-weight: bolder;
+      padding: 14px 12px;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #dedede;
+    }
+    .closePath{
+      cursor: pointer;
+      font-size: 14px;
+    }
   }
   
+  @keyframes slide{
+    from {
+      transform: translateX(140px);
+    }
+    to{
+      transform: translateX(0px);
+    }
+  } 

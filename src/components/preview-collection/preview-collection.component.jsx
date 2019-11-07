@@ -4,8 +4,9 @@ import PreviewItem from '../preview-item/preview-item.component'
 
 const PreviewCollection = ({title, items}) => {
     return (
+        <React.Fragment>
+        {/* <h1 className="title">{title.toUpperCase()}</h1> */}
         <div className="collection-preview">
-            <h1 className="title">{title.toUpperCase()}</h1>
             <div className="preview">
                 {
                     items
@@ -18,6 +19,7 @@ const PreviewCollection = ({title, items}) => {
                 }
             </div>
         </div>
+        </React.Fragment>
     )
 }
 

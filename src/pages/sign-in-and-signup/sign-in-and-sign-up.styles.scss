@@ -1,6 +1,37 @@
 .sign-in-and-sign-up{
     display: flex;
-    width: 900px;
-    justify-content: space-between;
+    // width: 900px;
+    align-items: center;
+    padding: 0px 1rem;
+    min-height: 60vh;
+    justify-content: center;
     margin:30px auto;
+    input {
+        font-size: 14px !important;
+    }
+    .sign-in, .sign-up{
+        padding: 0px 27px;
+    }
+}
+.logo{
+    height: 70px;
+    margin: 0rem auto 1rem;
+    display: block;
+    text-align: center;
+}
+.routes a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #adadad;
+    &.activetab {
+        border-bottom: 2px solid #000;
+        color: #000;
+    }
+}
+
+.routes {
+    display: flex;
+    justify-content: space-around;
+    width: 47%;
+    margin: 2rem auto;
 }

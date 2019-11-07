@@ -11,8 +11,10 @@
       padding: 10px 0;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid darkgrey;
-  
+      border-bottom: 1px solid #e2e2e2;
+      span{
+        font-size: 15px;
+      }
       .header-block {
         text-transform: capitalize;
         width: 23%;
@@ -28,14 +30,24 @@
       margin-left: auto;
       font-size: 36px;
     }
-    button{
+    button, a{
       margin-left:auto;
-      margin-top:50px;
+      margin-top:15px;
+      border: none !important;
+        box-shadow: none !important;
+      span{
+        padding: 8px 37px !important;
+        height: auto !important;
+        background: #00afaf !important;
+        border: none !important;
+        box-shadow: none !important;
+
+      }
     }
     .test-warning{
       text-align: center;
       margin-top:40px;
-      font-size: 24px;
+      font-size: 18px;
       color:red;
 
     }

@@ -6,10 +6,11 @@
   
     img {
       width: 30%;
+      object-fit: cover;
     }
   
     .item-details {
-      width: 70%;
+      width: 65%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -18,7 +19,28 @@
   
       .name {
         font-size: 16px;
+        font-family: blorado;
+        font-weight: 600;
       }
+      .price {
+        font-size: 13px;
+        margin-top: 11px;    
+      }
+    }
+    .delete{
+      width: 10%;
+      display: flex;
+      align-content: center;
+      align-self: center;
+      font-weight: 900;
+      background: #909090;
+      justify-content: center;
+      font-family: blorado;
+      cursor: pointer;
+      color: #fff;
+      border-radius: 50%;
+      padding: 5px 3px;
+      font-size: 11px;
     }
   }
   

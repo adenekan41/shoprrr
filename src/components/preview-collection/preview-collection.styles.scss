@@ -1,6 +1,6 @@
 .collection-preview {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     margin-bottom: 30px;
   
     .title {
@@ -9,8 +9,13 @@
     }
   
     .preview {
-      display: flex;
-      justify-content: space-between;
+      // display: flex;
+      // justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-rows: 1fr;
+      grid-column-gap: 12px;
+  
     }
   }
   

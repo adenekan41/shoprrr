@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Homepage from './pages/hompage/hompage.component';
-import {Switch, Route, BrowserRouter as Router, Redirect} from 'react-router-dom'
+import {Switch, Route, BrowserRouter as Router, Redirect, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import ShopPage from './pages/shop/shop.component';
@@ -13,10 +13,12 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
 import CheckoutPage from './pages/checkout/checkout.component';
 import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
-
+import FooterComponent from './components/footer/footer.component';
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import Contact from './pages/contact/contact.component';
+import Alerts from './components/alert/alert.component';
 class App extends React.Component {
-  
-  unsubscribeFromAuth = null
+
   
   componentDidMount() {
     const {checkUserSession} = this.props
@@ -24,20 +26,44 @@ class App extends React.Component {
   }
   
   componentWillUnmount(){
-    this.unsubscribeFromAuth()
+
   }
 
   render() {
+    const timeout = { enter:800, exit: 400 };
+    const { location , currentUser} = this.props;
+    // console.log(this.props)
+    const currentKey = location.pathname.split('/')[1] || '/'
   return (
-      <Router>
+      // <Router>
+      <>
         <Header />
-        <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path="/signin" render={() => this.props.currentUser ? (<Redirect to="/"></Redirect>) : (<SignInSignUp></SignInSignUp>)}/>
-          <Route exact path="/checkout" component={CheckoutPage} />
-        </Switch>
-      </Router>
+        <Alerts></Alerts>
+        <TransitionGroup component="div" className="App">
+          <CSSTransition key={currentKey} timeout={timeout} classNames="pageSlider" mountOnEnter={false} unmountOnExit={true}>
+            <div className="fades">
+              <Switch location={location}>
+                <Route exact path='/' component={Homepage} />
+                <Route path='/shop' component={ShopPage} />
+                <Route path="/auth" render={() => currentUser ? (<Redirect to="/"></Redirect>) : (<SignInSignUp></SignInSignUp>)}/>
+                <Route path="/contact" component={Contact}/>
+                <Route exact path="/checkout" component={CheckoutPage} />
+              </Switch>
+              {
+                location.pathname.includes('auth') ? (
+                  <></>
+                ):(
+                  <FooterComponent />
+                )
+              }
+              
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
+        
+        </>
+      // </Router>
+    
   );
   }
 }
@@ -47,4 +73,4 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   checkUserSession: () => dispatch(checkUserSession())
 })
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

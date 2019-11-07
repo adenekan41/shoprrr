@@ -6,10 +6,12 @@ import { withRouter } from 'react-router-dom'
 import CartItem from '../cart-item/cart-item.component'
 import { selectCartItems } from '../../redux/cart/cart.selector'
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
-const CartDropdown = ({cartItems, history,dispatch}) => {
+const CartDropdown = ({cartItems, history,dispatch, toggleHidden}) => {
     return (
         <div className="cart-dropdown">
             <div className="cart-items">
+                <p onClick={toggleHidden} className="closePath">&#10094; close</p>
+                <h4>Cart Item(s) <span className="float-right">{(cartItems.length)}</span></h4>
                 {
                     cartItems.length ? (
                     cartItems.map(cartItem => (
@@ -23,15 +25,16 @@ const CartDropdown = ({cartItems, history,dispatch}) => {
             </div>
             <CustomButton onClick={() => {
                 history.push('/checkout')
-                 dispatch(toggleCartHidden())
+                 toggleHidden()
             } }>GO TO CHECKOUT</CustomButton>
         </div>
     ) 
 }
 const mapStateToProps = (state) => ({
-    cartItems: selectCartItems(state)
+    cartItems: selectCartItems(state),
+    
 })
-// const mapDispatchToProps = dispatch => ({
-//     toggleHidden: () => dispatch(toggleCartHidden())
-// })  
-export default connect(mapStateToProps)(withRouter(CartDropdown))
+const mapDispatchToProps = dispatch => ({
+    toggleHidden: () => dispatch(toggleCartHidden())
+})  
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CartDropdown))

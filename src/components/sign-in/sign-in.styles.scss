@@ -1,8 +1,19 @@
 .sign-in{
-    width: 430px;
+    // align-items: ;
     display: flex;
     flex-direction: column;
-
+    // width: 450px;
+    // text-align: center;
+    span {
+        margin-bottom: 1rem;
+        font-size: 14px;
+        text-align: center;
+    }
+    h2 {
+        font-family: blorado;
+        font-weight: 800;
+        text-align: center;
+    }
     .title{
         margin: 10px 0;
     }

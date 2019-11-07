@@ -1,12 +1,12 @@
 import styled, {css} from 'styled-components'
 
 const defaultStyle = css`
-    background-color: black;
+    background-color: #0f161c;
     color: white;
     &:hover {
         background-color: white;
         color: black;
-        border: 1px solid black;
+        border: 1px solid #ddd;
     }
 `
 const invertedButton = css`
@@ -47,10 +47,11 @@ export const CustomButtonContainer = styled.button`
     letter-spacing: 0.5px;
     line-height: 50px;
     padding: 0 35px 0 35px;
-    font-size: 15px;
+    font-size: 14px;
+    border-radius:4px;
     text-transform: uppercase;
-    font-family: 'Open Sans Condensed';
-    font-weight: bolder;
+    transition: all .5s ease;
+    font-weight: 400;
     border: none;
     display: flex;
     justify-content: center;

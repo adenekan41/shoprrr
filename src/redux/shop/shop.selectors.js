@@ -21,7 +21,7 @@ export const selectisLoading = createSelector(
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
     collections => Object.keys(collections).map(key => {
-        console.log(collections)
+        // console.log(collections)
         return(
             collections[key]
         )}
@@ -32,7 +32,7 @@ export const selectCollection = collectionUrlParam => {
     return (
         createSelector(
         [selectCollections],
-        collections => collections ? collections[collectionUrlParam] : null
+        collections => {console.log(collections); return(collections ? collections[collectionUrlParam] : null)}
         // collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam])
     ))
     }

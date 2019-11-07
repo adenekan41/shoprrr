@@ -6,7 +6,7 @@ import { updateShopData, fetchCollectionsSuccess, fetchCollectionsFailure } from
 export function* fetchCollectionsStartAsync(){
     // yield alert("am here")
     try{
-        yield console.log('I am fired');
+        // yield console.log('I am fired');
 
         const collectionRef = firestore.collection('collections');
         const snapshot = yield collectionRef.get();
