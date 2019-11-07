@@ -32,6 +32,29 @@ const HeaderContainer = styled.span`
     svg{
         height: 40px;
     }
+    @media( max-width : 585px ) {
+        .navbar-brand{
+            svg{
+                left: -4rem !important;
+            }
+        }
+    }
+    @media( max-width : 989px ) {
+        /* CSS FOR TABLETS */
+        .navbar-brand{
+            svg{
+                left: -4rem !important;
+            }
+        }
+    }
+    @media( max-width : 220px ){
+        
+        .navbar-brand{
+            svg{
+                left: -4rem !important;
+            }
+        }
+    }
     .navbar-brand{
         svg{
             position:absolute;

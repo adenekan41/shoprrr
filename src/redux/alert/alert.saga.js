@@ -17,7 +17,7 @@ function* clear() {
 }
 function* updateAlert(id) {
     yield call(clear)
-    yield call(sleep, 3000)
+    yield call(sleep, 4000)
     yield put(removeAlert(id))
 }
 
