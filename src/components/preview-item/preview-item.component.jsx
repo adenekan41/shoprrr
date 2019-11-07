@@ -16,7 +16,6 @@ const PreviewItem = ({item, addItem, toggleCart}) => {
             </div>
             <CustomButton className="custom-button" theme="inverted" onClick={() => {
                     addItem(item)
-                    setTimeout(function(){ toggleCart() }, 2000);
                 }}>ADD TO CART</CustomButton>
             
         </div>
@@ -24,6 +23,5 @@ const PreviewItem = ({item, addItem, toggleCart}) => {
 }
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item)),
-    toggleCart: () => dispatch(toggleCartHidden())
 })
 export default connect(null, mapDispatchToProps)(PreviewItem)
