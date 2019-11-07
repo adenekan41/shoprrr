@@ -7,10 +7,17 @@ import { Link } from 'react-router-dom'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
 import CustomButton from '../../components/custom-button/custom-button.component'
+import BannerItem from '../../components/banner-item/banner-item.component'
 const CheckoutPage = ({cartItems, total}) => {
     return (
+        <>
+        <BannerItem bannertype={'center'} background={'https://i.ibb.co/4JVNZsb/2.jpg'} className="mx-0 mx-md-5 bannerItems" style={{color: '#fff'}} bannerheight="300px">
+            <div className="flex_arrange">
+                <h1>Checkout</h1> <br /><br />
+            </div>
+        </BannerItem>
         <div className="checkout-page">
-            <h1>Checkout</h1> <br /><br />
+            
             <div className="checkout-header">
                 <div className="header-block">
                     <span>Product</span>
@@ -50,7 +57,7 @@ const CheckoutPage = ({cartItems, total}) => {
             }
             
         </div>
-
+    </>
     )
 }
 const mapStateToProps = createStructuredSelector({

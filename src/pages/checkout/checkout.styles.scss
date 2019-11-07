@@ -5,6 +5,11 @@
     flex-direction: column;
     align-items: center;
     margin: 50px auto 0;
+
+    @media (max-width: 720px) {
+      width: 90%;
+      
+    }
   
     .checkout-header {
       width: 100%;
@@ -12,9 +17,22 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #e2e2e2;
+
+      @media (max-width: 720px) {
+        width: 99%;
+        margin-bottom: 1rem !important;
+        span{
+          display: none;
+        }
+        .header-block:first-child span{
+          display: block !important;
+        }
+      }
+      
       span{
         font-size: 15px;
       }
+
       .header-block {
         text-transform: capitalize;
         width: 23%;
