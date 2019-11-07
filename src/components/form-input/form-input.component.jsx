@@ -7,7 +7,7 @@ const FormInput = ({handelChange, label, ...rest}) => {
             onChange={handelChange} {...rest}/>
             {
                 label ? 
-                (<label className={`${rest.value.length ? 'shrink' : ''} form-input-label`}>
+                (<label className={`${rest.value.length ? 'shrink' : ''} form-input-label`} aria-label={label}>
                     {label}
                 </label>)
                 : null

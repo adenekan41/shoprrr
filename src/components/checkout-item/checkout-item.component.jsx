@@ -8,7 +8,7 @@ const CheckoutItem = ({cartItem, removeItem, addItem, clearItem}) => {
     return (
         <div className="checkout-item">
             <div className="image-container">
-                <img src={imageUrl} alt="item"/>
+                <img src={imageUrl} alt={name} aria-label={name}/>
             </div>
             <span className="name">{name}</span>
             <span className="quantity">

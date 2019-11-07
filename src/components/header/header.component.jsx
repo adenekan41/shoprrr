@@ -46,14 +46,14 @@ const Header = ({currentUser, hidden, signOut, match}) => {
         <HeaderContainer>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container fluid={true}>
-                    <Navbar.Brand href="#home" as={Link} to="/"> <Logo className="logo"></Logo></Navbar.Brand>
+                    <Navbar.Brand href="#home" as={Link} to="/" aria-label="Header"> <Logo className="logo"></Logo></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         
                         <Nav className='ml-auto'>
-                            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                            <Nav.Link as={NavLink} to="/shop" activeClassName='is-active'>Shop</Nav.Link>
-                            <Nav.Link as={NavLink} to="/contact" activeClassName='is-active'>Contact</Nav.Link>
+                            <Nav.Link as={NavLink} to="/" aria-label="Home">Home</Nav.Link>
+                            <Nav.Link as={NavLink} to="/shop" activeClassName='is-active' aria-label="Shop">Shop</Nav.Link>
+                            <Nav.Link as={NavLink} to="/contact" activeClassName='is-active' aria-label="Contact">Contact</Nav.Link>
                             {
                                 currentUser ? (
                                     <NavDropdown title={currentUser.displayName} id="basic-nav-dropdown" drop='left'>
@@ -62,11 +62,11 @@ const Header = ({currentUser, hidden, signOut, match}) => {
                                         <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>
                                     </NavDropdown>
                                 ) : (
-                                    <Nav.Link as={NavLink} to="/auth" activeClassName='is-active'>Sign In</Nav.Link>
+                                    <Nav.Link as={NavLink} to="/auth" activeClassName='is-active' aria-label="Signin">Sign In</Nav.Link>
                                 )
                             }
                             
-                            <Nav.Link><CartIcon /></Nav.Link>
+                            <Nav.Link aria-label="Cart Icon"><CartIcon /></Nav.Link>
                             {hidden && (
                                 <CartDropdown />
                             )}

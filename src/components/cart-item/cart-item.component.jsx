@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 const CartItem = ({item : {imageUrl, price , name, quantity, id} ,removeItem }) => {
     return (
         <div className="cart-item">
-            <img src={imageUrl} alt=""/>
+            <img src={imageUrl} alt={name} aria-label={name}/>
             <div className="item-details">
                 <span className="name">{name}</span>
                 <span className="price">{quantity} X ${price}</span>
