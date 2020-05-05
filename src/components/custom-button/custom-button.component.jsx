@@ -1,26 +1,13 @@
-// import React from 'react'
- 
-// import './custom-button.styles.scss'
-// const CustomButton = ({children, ...rest}) => {
-//     return (
-//         <button className={`${rest.theme} custom-button`} {...rest}>
-//             {children}
-//         </button>
-//     )
-// }
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CustomButtonContainer } from './custom-button.styles';
 
-// export default CustomButton
+const CustomButton = ({ children, ...rest }) => {
+  return <CustomButtonContainer {...rest}>{children}</CustomButtonContainer>;
+};
 
-import React from 'react'
-import { CustomButtonContainer } from './custom-button.styles'
- 
-// import './custom-button.styles.scss'
-const CustomButton = ({children, ...rest}) => {
-    return (
-        <CustomButtonContainer {...rest}>
-            {children}
-        </CustomButtonContainer>
-    )
-}
+CustomButton.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
+};
 
-export default CustomButton
+export default CustomButton;

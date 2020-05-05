@@ -1,26 +1,26 @@
-import React from 'react'
-import './preview-collection.styles.scss'
-import PreviewItem from '../preview-item/preview-item.component'
+import React from 'react';
+import './preview-collection.styles.scss';
+import PreviewItem from '../preview-item/preview-item.component';
+import PropTypes from 'prop-types';
 
-const PreviewCollection = ({title, items}) => {
-    return (
-        <React.Fragment>
-        {/* <h1 className="title">{title.toUpperCase()}</h1> */}
-        <div className="collection-preview">
-            <div className="preview">
-                {
-                    items
-                    .filter((item,index) => index < 4)
-                    .map((item) => {
-                        return (
-                            <PreviewItem key={item.id} item={item}/>
-                        )
-                    })
-                }
-            </div>
+const PreviewCollection = ({ items }) => {
+  return (
+    <React.Fragment>
+      <div className="collection-preview">
+        <div className="preview">
+          {items
+            .filter((item, index) => index < 4)
+            .map(item => {
+              return <PreviewItem key={item.id} item={item} />;
+            })}
         </div>
-        </React.Fragment>
-    )
-}
+      </div>
+    </React.Fragment>
+  );
+};
 
-export default PreviewCollection
+PreviewCollection.propTypes = {
+  items: PropTypes.array,
+};
+
+export default PreviewCollection;

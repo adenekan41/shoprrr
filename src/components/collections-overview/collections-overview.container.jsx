@@ -1,20 +1,19 @@
-import { createStructuredSelector } from "reselect";
-import { selectisLoading } from "../../redux/shop/shop.selectors";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import WithSpinner from "../with-spinner/with-spinner.components";
-import CollectionsOverview from "./collections-overview.component";
-
+import { createStructuredSelector } from 'reselect';
+import { selectisLoading } from '../../redux/shop/shop.selectors';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import WithSpinner from '../with-spinner/with-spinner.components';
+import CollectionsOverview from './collections-overview.component';
 
 const mapStateToProps = createStructuredSelector({
-    isLoading: selectisLoading
-})
-// this helps us a lot because compose reads from RTL
+  isLoading: selectisLoading,
+});
+// This helps us a lot because compose reads from RTL
 const collectionsContainer = compose(
-    connect(mapStateToProps),
-    WithSpinner
+  connect(mapStateToProps),
+  WithSpinner
 )(CollectionsOverview);
 
-// or can be like this without compose
+// Or can be like this without compose
 // const collectionsContainer = connect(mapStateToProps)(WithSpinner((CollectionsOverview)))
 export default collectionsContainer;
